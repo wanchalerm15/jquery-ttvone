@@ -1,0 +1,213 @@
+/*
+css style
+jquery ttvone developer by ttvone 
+wanchaloem laoket 
+copyright 2016
+contact : wanchaloem.laokeut@googlemail.com
+version 1.0.4
+*/
+body{padding: 0;margin: 0;}
+.ttvone-scope{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: sans-serif;
+}
+.ttvone-hide{ display: none; visibility: hidden; }
+.ttvone-show{ display: block; visibility: visible; }
+
+/* #################### BEGIN TOOLTIP #################### */
+.ttvone-tooltip,
+.ttvone-tooltip > .ttvone-arrow
+{
+    position: fixed;
+}
+.ttvone-tooltip {
+    padding: 8px;
+    background-color: #303030;
+    color: #f0f0f0;
+    font-size: 12px;
+    border-radius: 3px;
+    border: solid 1px #000000;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .2);
+}
+.ttvone-tooltip > .ttvone-text {}
+.ttvone-tooltip > .ttvone-arrow,
+.ttvone-tooltip > .ttvone-arrow.ttvone-left:before,
+.ttvone-tooltip > .ttvone-arrow.ttvone-right:before,
+.ttvone-tooltip > .ttvone-arrow.ttvone-top:before,
+.ttvone-tooltip > .ttvone-arrow.ttvone-bottom:before
+{
+    border: solid 6px transparent;
+}
+.ttvone-tooltip > .ttvone-arrow.ttvone-left { border-right: solid 6px #000000; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-right { border-left: solid 6px #000000; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-top { border-top: solid 6px #000000; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-bottom { border-bottom: solid 6px #000000; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-left:before,
+.ttvone-tooltip > .ttvone-arrow.ttvone-right:before,
+.ttvone-tooltip > .ttvone-arrow.ttvone-top:before,
+.ttvone-tooltip > .ttvone-arrow.ttvone-bottom:before
+{
+    content: ' ';
+    position: absolute;
+}
+.ttvone-tooltip > .ttvone-arrow.ttvone-left:before { border-right: solid 6px #303030; top: -6px; left: -5px; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-right:before { border-left: solid 6px #303030; top: -6px; right: -5px; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-top:before { border-top: solid 6px #303030; top: -7px; left: -6px; }
+.ttvone-tooltip > .ttvone-arrow.ttvone-bottom:before { border-bottom: solid 6px #303030; top: -5px; left: -6px; }
+/* #################### END TOOLTIP #################### */
+
+
+/* #################### BEGIN AUTOCOMPLATE #################### */
+.ttvone-autocomplate{
+    position: fixed;
+    border: solid 1px #c0c0c0;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    background: #fff;
+    padding-top: 2px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .07);
+    border-radius: 2px;
+}
+.ttvone-autocomplate > li{
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.ttvone-autocomplate > li:hover,
+.ttvone-autocomplate > li.ttvone-active
+{
+    background-color: #303030;
+    color: #f0f0f0;
+}
+.ttvone-autocomplate:before,
+.ttvone-autocomplate:after
+{
+    content: ' ';
+    position: absolute;
+    border: solid 5px transparent;
+}
+.ttvone-autocomplate:before{
+    border-bottom: 5px #c0c0c0 solid;
+    top: -10px;
+    left: 5px;
+}
+.ttvone-autocomplate:after{
+    border-bottom: 5px #fff solid;
+    top: -9px;
+    left: 5px;
+}
+.ttvone-autocomplate-caret{
+    display: inline-block;
+    border-style: solid;
+    border-width: 5px;
+    border-bottom-color: transparent;
+    border-top-color: #333;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: auto;
+    left: auto;
+    cursor: pointer;
+    display: none;
+}
+.ttvone-autocomplate-main:hover + .ttvone-autocomplate-caret,
+.ttvone-autocomplate-main:focus + .ttvone-autocomplate-caret,
+.ttvone-autocomplate-caret:hover
+{
+    display: block;
+}
+/* #################### END AUTOCOMPLATE #################### */
+
+
+/* #################### BEGIN ALERT DIALOG #################### */
+.ttvone-alert {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.ttvone-alert > .ttvone-backdrop {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, .5);
+    overflow-y: auto;
+}
+.ttvone-alert > .ttvone-backdrop.ttvone-none {background-color: transparent; background-color: rgba(0, 0, 0, 0); }
+.ttvone-alert > .ttvone-backdrop > .ttvone-content {
+    width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    margin: 50px auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    border-radius: 2px;
+    border: solid 1px #eee;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div:nth-of-type(1) {
+    text-align: center;
+    border-bottom: solid 1px #e0e0e0;
+    padding: 10px 0 20px 0;
+    margin-bottom: 20px;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div:nth-of-type(2) {
+    text-align: right;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > input,
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > button
+{
+    border-radius: 2px;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > button {
+    font-size: 14px;
+    height: 30px;
+    min-width: 140px;  
+    border:none;
+    background-color: #cccccc;
+    color: #404040;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > input {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    height: 32px;
+    box-sizing: border-box;
+    border: solid 1px #d0d0d0;
+    padding-left: 10px;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > button:focus,
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > input:focus
+{ 
+    outline: none;
+    border: solid 1px #777;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > button.ttvone-show {
+    display: inline-block;
+}
+.ttvone-alert > .ttvone-backdrop > .ttvone-content > div > button:hover {
+    background-color: #a0a0a0;
+    color: #000;
+}
+/* #################### END ALERT DIALOG #################### */
+
+
+
+
+
+
+
+
+
+
+
+
+

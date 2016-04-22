@@ -728,6 +728,44 @@
         $.ajax({ method: 'GET', url: encodeURL, success: success });
     };
     /* ### END GET WEB CONTENT SERVICE  ### */
+
+    /* ### BEGIN GET PARAMS ###*/
+    $.ttvone_params         = function(scope){
+        scope               = scope || '?';
+        var returnParams    = {};
+        try{
+            var search          = (scope === '?') ? $.trim(location.search) : $.trim(location.hash);
+            if(search === '')   return;
+            var _search         = search.split(scope);
+            // SCAN RAW PARAMS
+            $.each(_search, function(rawParamsKey, rawParams){
+                var _rawParams  = $.trim(rawParams);
+                if(_rawParams === '') return;
+                var params      = _rawParams.split('&');
+                var randomKey   = 1;
+                // SCAN PARAMS
+                $.each(params, function(paramKey, param){
+                    var _param  = param.split('=');
+                    if(_param.length !== 2) return;
+                    var _key    = _param[0];
+                    if(_key.indexOf('[]') !== -1){
+                        _key    = _key.replace('[]', '');
+                        _key    = _key + '_' + randomKey;
+                        randomKey ++;
+                    }
+                    var _val    = decodeURIComponent(_param[1]);
+                    returnParams[_key] = _val;
+                });
+            });
+        }
+        catch(e){
+            returnParams = {
+                error: e.message  
+            };
+        }
+        return returnParams;
+    };
+    /* ### END GET PARAMS ###*/
 }).call(this);
 
 
